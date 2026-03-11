@@ -86,7 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Icon(Icons.email_outlined),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/email.svg', height: 15, width: 15),
+                      ),
                       labelText: "Email Address",
                       labelStyle: TextStyle(
                         fontSize: 14,
@@ -112,7 +115,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Icon(Icons.lock_outlined),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                      ),
                       suffixIcon: TextButton(
                         onPressed: () {
                           Navigator.push(

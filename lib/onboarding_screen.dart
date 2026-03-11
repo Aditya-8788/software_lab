@@ -122,9 +122,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             setState(() {
                               _currentIndex++;
                             });
-                          } else {
-                            // Optionally navigate to login
-                          }
+                          } else {}
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: _currentColor,

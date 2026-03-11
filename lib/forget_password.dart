@@ -78,7 +78,14 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Icon(Icons.phone_outlined),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset(
+                          'assets/icons/phone.svg',
+                          height: 15,
+                          width: 15,
+                        ),
+                      ),
                       labelText: "Phone Number",
                       labelStyle: TextStyle(
                         fontSize: 14,
@@ -104,7 +111,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 //         borderRadius: BorderRadius.circular(8),
                 //         borderSide: BorderSide(color: Colors.grey.shade300),
                 //       ),
-                //       prefixIcon: Icon(Icons.lock_outlined),
+                //       prefixIcon: Padding(
+                //         padding: const EdgeInsets.all(12.0),
+                //         child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                //       ),
                 //       suffixIcon: TextButton(
                 //         onPressed: () {},
                 //         child: Text(

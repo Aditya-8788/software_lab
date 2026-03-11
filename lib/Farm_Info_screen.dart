@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:software_lab/Farm_Info_screen.dart';
-import 'package:software_lab/forget_password.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:software_lab/Verification_screen.dart';
 import 'package:software_lab/utils/constant.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class FarmInfoScreen extends StatefulWidget {
+  const FarmInfoScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<FarmInfoScreen> createState() => _FarmInfoScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _FarmInfoScreenState extends State<FarmInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +34,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: 40),
                 Text(
-                  "Signup 1 of 4",
+                  "Signup 2 of 4",
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
@@ -45,256 +44,204 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "Welcome!",
+                  "Farm Info",
                   style: TextStyle(
                     fontSize: 32,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
                     fontFamily: "Be Vietnam",
                     color: Constant.primary_text,
                   ),
                 ),
                 SizedBox(height: 40),
+                SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/business.svg', height: 15, width: 15),
+                      ),
+                      labelText: "Business Name",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Be Vietnam",
+                        color: const Color.fromARGB(71, 38, 28, 18),
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 221, 221, 221),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        // borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
+                SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/informal.svg', height: 15, width: 15),
+                      ),
+                      labelText: "Informal Name",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Be Vietnam",
+                        color: const Color.fromARGB(71, 38, 28, 18),
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 221, 221, 221),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        // borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
+                SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/street_address.svg', height: 15, width: 15),
+                      ),
+                      labelText: "Street Address",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Be Vietnam",
+                        color: const Color.fromARGB(71, 38, 28, 18),
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 221, 221, 221),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        // borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
+                SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/city.svg', height: 15, width: 15),
+                      ),
+                      labelText: "City",
+                      labelStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Be Vietnam",
+                        color: const Color.fromARGB(71, 38, 28, 18),
+                      ),
+                      filled: true,
+                      fillColor: const Color.fromARGB(255, 221, 221, 221),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        // borderSide: BorderSide(color: Colors.grey.shade300),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      height: 52,
-                      width: 96,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.shade300),
-                        borderRadius: BorderRadius.circular(30),
+                    SizedBox(
+                      height: 48,
+                      width: 126,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey.shade300),
+                          ),
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: SvgPicture.asset('assets/icons/state.svg', height: 15, width: 15),
+                          ),
+                          labelText: "State",
+                          labelStyle: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "Be Vietnam",
+                            color: const Color.fromARGB(71, 38, 28, 18),
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 221, 221, 221),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            // borderSide: BorderSide(color: Colors.grey.shade300),
+                          ),
+                        ),
                       ),
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset("assets/images/google.svg"),
                     ),
-                    Container(
-                      height: 52,
-                      width: 96,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.shade300),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset("assets/images/apple.svg"),
-                    ),
-                    Container(
-                      height: 52,
-                      width: 96,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.shade300),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset(
-                        "assets/images/facebook.svg",
-                        height: 30,
-                        width: 30,
+                    SizedBox(width: 15),
+                    SizedBox(
+                      height: 48,
+                      width: 188,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey.shade300),
+                          ),
+                          labelText: "Enter Zipcode",
+                          labelStyle: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "Be Vietnam",
+                            color: const Color.fromARGB(71, 38, 28, 18),
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 221, 221, 221),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            // borderSide: BorderSide(color: Colors.grey.shade300),
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 40),
-                Center(
-                  child: Text(
-                    "or sign in with",
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "Be Vietnam",
-                      color: const Color.fromARGB(75, 0, 0, 0),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 30),
-                SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                      prefixIcon: SizedBox(
-                        height: 20,
-                        width: 20,
-                        child: SvgPicture.asset(
-                          'assets/icons/name.svg',
-                          fit: BoxFit.scaleDown,
-                          // height: 15,
-                          // width: 15,
-                        ),
-                      ),
-                      labelText: "Full Name",
-                      labelStyle: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Be Vietnam",
-                        color: const Color.fromARGB(71, 38, 28, 18),
-                      ),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 221, 221, 221),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 25),
-                SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(
-                          'assets/icons/email.svg',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                      labelText: "Email Address",
-                      labelStyle: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Be Vietnam",
-                        color: const Color.fromARGB(71, 38, 28, 18),
-                      ),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 221, 221, 221),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 25),
-                SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(
-                          'assets/icons/phone.svg',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                      labelText: "Phone Number",
-                      labelStyle: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Be Vietnam",
-                        color: const Color.fromARGB(71, 38, 28, 18),
-                      ),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 221, 221, 221),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 25),
-                SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(
-                          'assets/icons/password.svg',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                      labelText: "Password",
-                      labelStyle: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Be Vietnam",
-                        color: const Color.fromARGB(71, 38, 28, 18),
-                      ),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 221, 221, 221),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 25),
-                SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(
-                          'assets/icons/password.svg',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                      labelText: "Re-enter Password",
-                      labelStyle: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "Be Vietnam",
-                        color: const Color.fromARGB(71, 38, 28, 18),
-                      ),
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 221, 221, 221),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 60),
+                SizedBox(height: 190),
                 Row(
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "Be Vietnam",
-                          color: const Color.fromARGB(255, 0, 0, 0),
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.black,
-                        ),
-                      ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: SvgPicture.asset('assets/icons/backWard_arryo.svg', height: 15, width: 15),
                     ),
-                    SizedBox(width: 38),
+                    SizedBox(width: 55),
                     SizedBox(
                       height: 52,
                       width: 226,
@@ -303,7 +250,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const FarmInfoScreen(),
+                              builder: (context) => const VerificationScreen(),
                             ),
                           );
                         },

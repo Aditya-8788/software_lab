@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:software_lab/utils/constant.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
@@ -76,7 +77,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Icon(Icons.lock_outlined),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                      ),
                       labelText: "New Password",
                       labelStyle: TextStyle(
                         fontSize: 14,
@@ -102,7 +106,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Icon(Icons.lock_outlined),
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                      ),
                       labelText: "Confirm New Password",
                       labelStyle: TextStyle(
                         fontSize: 14,

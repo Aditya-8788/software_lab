@@ -13,12 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         bottomSheetTheme: const BottomSheetThemeData(
-          backgroundColor: Color.fromARGB(
-            0,
-            255,
-            0,
-            0,
-          ), // Setting the global BottomSheet color here
+          backgroundColor: Color.fromARGB(0, 255, 0, 0),
         ),
       ),
       home: const OnboardingScreen(),
