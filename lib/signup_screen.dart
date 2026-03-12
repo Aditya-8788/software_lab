@@ -15,15 +15,15 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 10),
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -33,7 +33,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     color: Constant.primary_text,
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 Text(
                   "Signup 1 of 4",
                   style: TextStyle(
@@ -93,7 +93,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 Center(
                   child: Text(
                     "or sign in with",
@@ -116,13 +116,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
                       prefixIcon: SizedBox(
-                        height: 20,
-                        width: 20,
+                        height: 15,
+                        width: 15,
                         child: SvgPicture.asset(
                           'assets/icons/name.svg',
                           fit: BoxFit.scaleDown,
-                          // height: 15,
-                          // width: 15,
                         ),
                       ),
                       labelText: "Full Name",
@@ -151,12 +149,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
                         child: SvgPicture.asset(
                           'assets/icons/email.svg',
-                          height: 15,
-                          width: 15,
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                       labelText: "Email Address",
@@ -185,12 +183,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
                         child: SvgPicture.asset(
                           'assets/icons/phone.svg',
-                          height: 15,
-                          width: 15,
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                       labelText: "Phone Number",
@@ -219,12 +217,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
                         child: SvgPicture.asset(
                           'assets/icons/password.svg',
-                          height: 15,
-                          width: 15,
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                       labelText: "Password",
@@ -253,12 +251,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
                         child: SvgPicture.asset(
                           'assets/icons/password.svg',
-                          height: 15,
-                          width: 15,
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                       labelText: "Re-enter Password",
@@ -277,7 +275,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 70),
                 Row(
                   children: [
                     TextButton(
@@ -294,7 +292,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 38),
+                    SizedBox(width: 85),
                     SizedBox(
                       height: 52,
                       width: 226,

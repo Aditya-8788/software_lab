@@ -13,15 +13,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15),
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -77,9 +77,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/password.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "New Password",
                       labelStyle: TextStyle(
@@ -106,9 +110,13 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/password.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "Confirm New Password",
                       labelStyle: TextStyle(
@@ -147,52 +155,6 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
-                // Center(
-                //   child: Text(
-                //     "or sign in with",
-                //     style: TextStyle(
-                //       fontSize: 10,
-                //       fontWeight: FontWeight.w400,
-                //       fontFamily: "Be Vietnam",
-                //       color: const Color.fromARGB(75, 0, 0, 0),
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(height: 30),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/google.svg"),
-                //     ),
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/apple.svg"),
-                //     ),
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/facebook.svg"),
-                //     ),
               ],
             ),
           ),

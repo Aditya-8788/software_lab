@@ -15,9 +15,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -86,9 +87,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/email.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/email.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "Email Address",
                       labelStyle: TextStyle(
@@ -115,9 +120,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/password.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       suffixIcon: TextButton(
                         onPressed: () {

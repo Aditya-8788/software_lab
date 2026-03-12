@@ -14,15 +14,15 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15),
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -68,7 +68,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                   ],
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 50),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
@@ -78,12 +78,12 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
                         child: SvgPicture.asset(
                           'assets/icons/phone.svg',
-                          height: 15,
-                          width: 15,
+                          fit: BoxFit.scaleDown,
                         ),
                       ),
                       labelText: "Phone Number",
@@ -102,47 +102,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     ),
                   ),
                 ),
-                SizedBox(height: 25),
-                // SizedBox(
-                //   height: 50,
-                //   child: TextField(
-                //     decoration: InputDecoration(
-                //       enabledBorder: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //         borderSide: BorderSide(color: Colors.grey.shade300),
-                //       ),
-                //       prefixIcon: Padding(
-                //         padding: const EdgeInsets.all(12.0),
-                //         child: SvgPicture.asset('assets/icons/password.svg', height: 15, width: 15),
-                //       ),
-                //       suffixIcon: TextButton(
-                //         onPressed: () {},
-                //         child: Text(
-                //           "Forget?",
-                //           style: TextStyle(
-                //             fontSize: 14,
-                //             fontWeight: FontWeight.w400,
-                //             fontFamily: "Be Vietnam",
-                //             color: Constant.primary,
-                //           ),
-                //         ),
-                //       ),
-                //       labelText: "Password",
-                //       labelStyle: TextStyle(
-                //         fontSize: 14,
-                //         fontWeight: FontWeight.w400,
-                //         fontFamily: "Be Vietnam",
-                //         color: const Color.fromARGB(71, 38, 28, 18),
-                //       ),
-                //       filled: true,
-                //       fillColor: const Color.fromARGB(255, 221, 221, 221),
-                //       border: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                SizedBox(height: 20),
+                SizedBox(height: 45),
                 Center(
                   child: SizedBox(
                     height: 52,
@@ -170,53 +130,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   ),
                 ),
                 SizedBox(height: 30),
-                // Center(
-                //   child: Text(
-                //     "or sign in with",
-                //     style: TextStyle(
-                //       fontSize: 10,
-                //       fontWeight: FontWeight.w400,
-                //       fontFamily: "Be Vietnam",
-                //       color: const Color.fromARGB(75, 0, 0, 0),
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(height: 30),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/google.svg"),
-                //     ),
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/apple.svg"),
-                //     ),
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/facebook.svg"),
-                //     ),
-                //   ],
-                // ),
               ],
             ),
           ),

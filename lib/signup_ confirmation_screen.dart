@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:software_lab/otp_screen.dart';
 import 'package:software_lab/utils/constant.dart';
 
 class SignupConfirmationScreen extends StatefulWidget {
@@ -15,9 +14,10 @@ class _SignupConfirmationScreenState extends State<SignupConfirmationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               SizedBox(height: 150),

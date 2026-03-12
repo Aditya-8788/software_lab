@@ -14,15 +14,15 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 10),
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -32,7 +32,7 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                     color: Constant.primary_text,
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 Text(
                   "Signup 2 of 4",
                   style: TextStyle(
@@ -62,9 +62,13 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/business.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/business.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "Business Name",
                       labelStyle: TextStyle(
@@ -92,9 +96,13 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/informal.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/informal.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "Informal Name",
                       labelStyle: TextStyle(
@@ -122,9 +130,13 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/street_address.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/street_address.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "Street Address",
                       labelStyle: TextStyle(
@@ -152,9 +164,13 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset('assets/icons/city.svg', height: 15, width: 15),
+                      prefixIcon: SizedBox(
+                        height: 15,
+                        width: 15,
+                        child: SvgPicture.asset(
+                          'assets/icons/city.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       labelText: "City",
                       labelStyle: TextStyle(
@@ -184,9 +200,13 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(color: Colors.grey.shade300),
                           ),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: SvgPicture.asset('assets/icons/state.svg', height: 15, width: 15),
+                          suffixIcon: SizedBox(
+                            height: 15,
+                            width: 15,
+                            child: SvgPicture.asset(
+                              'assets/icons/state.svg',
+                              fit: BoxFit.scaleDown,
+                            ),
                           ),
                           labelText: "State",
                           labelStyle: TextStyle(
@@ -232,16 +252,20 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 190),
+                SizedBox(height: 200),
                 Row(
                   children: [
                     IconButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: SvgPicture.asset('assets/icons/backWard_arryo.svg', height: 15, width: 15),
+                      icon: SvgPicture.asset(
+                        'assets/icons/backWard_arryo.svg',
+                        height: 15,
+                        width: 15,
+                      ),
                     ),
-                    SizedBox(width: 55),
+                    SizedBox(width: 100),
                     SizedBox(
                       height: 52,
                       width: 226,
@@ -270,6 +294,7 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                     ),
                   ],
                 ),
+                //
               ],
             ),
           ),

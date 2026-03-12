@@ -13,15 +13,15 @@ class _otpState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 15),
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -67,7 +67,7 @@ class _otpState extends State<OtpScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -143,70 +143,7 @@ class _otpState extends State<OtpScreen> {
                     ),
                   ],
                 ),
-                // SizedBox(
-                //   height: 50,
-                //   width: double.infinity,
-                //   child: TextField(
-                //     decoration: InputDecoration(
-                //       enabledBorder: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //         borderSide: BorderSide(color: Colors.grey.shade300),
-                //       ),
-                //       prefixIcon: Icon(Icons.phone_outlined),
-                //       labelText: "Phone Number",
-                //       labelStyle: TextStyle(
-                //         fontSize: 14,
-                //         fontWeight: FontWeight.w400,
-                //         fontFamily: "Be Vietnam",
-                //         color: const Color.fromARGB(71, 38, 28, 18),
-                //       ),
-                //       filled: true,
-                //       fillColor: const Color.fromARGB(255, 221, 221, 221),
-                //       border: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //         // borderSide: BorderSide(color: Colors.grey.shade300),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                SizedBox(height: 25),
-                // SizedBox(
-                //   height: 50,
-                //   child: TextField(
-                //     decoration: InputDecoration(
-                //       enabledBorder: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //         borderSide: BorderSide(color: Colors.grey.shade300),
-                //       ),
-                //       prefixIcon: Icon(Icons.lock_outlined),
-                //       suffixIcon: TextButton(
-                //         onPressed: () {},
-                //         child: Text(
-                //           "Forget?",
-                //           style: TextStyle(
-                //             fontSize: 14,
-                //             fontWeight: FontWeight.w400,
-                //             fontFamily: "Be Vietnam",
-                //             color: Constant.primary,
-                //           ),
-                //         ),
-                //       ),
-                //       labelText: "Password",
-                //       labelStyle: TextStyle(
-                //         fontSize: 14,
-                //         fontWeight: FontWeight.w400,
-                //         fontFamily: "Be Vietnam",
-                //         color: const Color.fromARGB(71, 38, 28, 18),
-                //       ),
-                //       filled: true,
-                //       fillColor: const Color.fromARGB(255, 221, 221, 221),
-                //       border: OutlineInputBorder(
-                //         borderRadius: BorderRadius.circular(8),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                SizedBox(height: 20),
+                SizedBox(height: 45),
                 Center(
                   child: SizedBox(
                     height: 52,
@@ -249,42 +186,6 @@ class _otpState extends State<OtpScreen> {
                     ),
                   ),
                 ),
-                // SizedBox(height: 30),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/google.svg"),
-                //     ),
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/apple.svg"),
-                //     ),
-                //     Container(
-                //       height: 52,
-                //       width: 96,
-                //       decoration: BoxDecoration(
-                //         border: Border.all(color: Colors.grey.shade300),
-                //         borderRadius: BorderRadius.circular(30),
-                //       ),
-                //       alignment: Alignment.center,
-                //       child: SvgPicture.asset("assets/images/facebook.svg"),
-                //     ),
-                //   ],
-                // ),
               ],
             ),
           ),

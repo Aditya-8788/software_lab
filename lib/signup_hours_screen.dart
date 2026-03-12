@@ -28,18 +28,18 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffE9E4E2),
+      backgroundColor: Colors.white,
 
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text("FarmerEats"),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
 
               const Text("Signup 4 of 4", style: TextStyle(color: Colors.grey)),
 
@@ -50,7 +50,7 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
 
               const Text(
                 "Choose the hours your farm is open for pickups. This will allow customers to order deliveries.",
@@ -149,6 +149,7 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
                 ),
 
               const Spacer(),
+              // SizedBox(height: 200),
 
               /// SIGNUP BUTTON
               Row(
@@ -163,7 +164,7 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
                       width: 15,
                     ),
                   ),
-                  SizedBox(width: 55),
+                  SizedBox(width: 100),
                   SizedBox(
                     height: 52,
                     width: 226,
@@ -194,7 +195,7 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
                 ],
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
             ],
           ),
         ),

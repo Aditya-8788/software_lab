@@ -14,15 +14,15 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 10),
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -32,7 +32,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     color: Constant.primary_text,
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 Text(
                   "Signup 3 of 4",
                   style: TextStyle(
@@ -52,7 +52,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     color: Constant.primary_text,
                   ),
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 30),
                 Text(
                   "Attached proof of Department of Agriculture registrations i.e. Florida Fresh, USDA Approved, USDA Organic",
                   style: TextStyle(
@@ -70,10 +70,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       width: 200,
                       child: Text("Attach proof of registration"),
                     ),
-                    SizedBox(width: 90),
+                    SizedBox(width: 100),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.amber,
+                        color: Constant.primary,
                         shape: BoxShape.circle,
                       ),
                       height: 53,
@@ -88,7 +88,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 390),
+                SizedBox(height: 400),
                 Row(
                   children: [
                     IconButton(
@@ -101,7 +101,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                         width: 15,
                       ),
                     ),
-                    SizedBox(width: 55),
+                    SizedBox(width: 90),
                     SizedBox(
                       height: 52,
                       width: 226,
