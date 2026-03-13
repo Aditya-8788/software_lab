@@ -25,16 +25,60 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
 
   final List<String> _states = [
     'Select state',
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
+
+'Arunachal Pradesh',
+
+'Assam',
+
+'Bihar',
+
+'Chhattisgarh',
+
+'Goa',
+
+'Gujarat',
+
+'Haryana',
+
+'Himachal Pradesh',
+
+'Jharkhand',
+
+'Karnataka',
+
+'Kerala',
+
+'Madhya Pradesh',
+
+'Maharashtra',
+
+'Manipur',
+
+'Meghalaya',
+
+'Mizoram',
+
+'Nagaland',
+
+'Odisha',
+
+'Punjab',
+
+'Rajasthan',
+
+'Sikkim',
+
+'Tamil Nadu',
+
+'Telangana',
+
+'Tripura',
+
+'Uttar Pradesh',
+
+'Uttarakhand',
+
+'West Bengal',
     // ...add remaining states as needed
   ];
 
