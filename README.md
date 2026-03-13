@@ -11,7 +11,7 @@ A Flutter application that connects farmers directly with consumers, enabling th
 - **Password Recovery**: Forgot password functionality with email reset
 - **Onboarding**: Interactive onboarding experience highlighting quality, convenience, and local benefits
 
-## Screenshots
+## video
 
 *Add screenshots of your app here*
 
