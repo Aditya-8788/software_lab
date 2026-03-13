@@ -13,8 +13,6 @@ A Flutter application that connects farmers directly with consumers, enabling th
 
 ## video
 
-*Add screenshots of your app here*
-
 ## Getting Started
 
 ### Prerequisites
