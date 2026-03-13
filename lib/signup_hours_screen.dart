@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:software_lab/signup_%20confirmation_screen.dart';
 import 'package:software_lab/utils/constant.dart';
@@ -14,6 +15,67 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
   int? currentDay;
   Set<int> selectedDays = {};
   Set<int> selectedTimes = {};
+  bool _isSaving = false;
+
+  Future<void> _saveHours() async {
+    if (selectedDays.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please select at least one day.')),
+      );
+      return;
+    }
+
+    if (selectedTimes.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please select at least one time slot.')),
+      );
+      return;
+    }
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please sign in again.')),
+      );
+      return;
+    }
+
+    setState(() {
+      _isSaving = true;
+    });
+
+    try {
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).set(
+        {
+          'businessHours': {
+            'days': selectedDays.map((i) => days[i]).toList(),
+            'timeSlots': selectedTimes.map((i) => timeSlots[i]).toList(),
+          }
+        },
+        SetOptions(merge: true),
+      );
+
+      if (!mounted) return;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SignupConfirmationScreen(),
+        ),
+      );
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to save hours. Please try again.')),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isSaving = false;
+        });
+      }
+    }
+  }
 
   List<String> days = ["M", "T", "W", "Th", "F", "S", "Su"];
 
@@ -169,27 +231,28 @@ class _SignupHoursScreenState extends State<SignupHoursScreen> {
                     height: 52,
                     width: 226,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const SignupConfirmationScreen(),
-                          ),
-                        );
-                      },
+                      onPressed: _isSaving ? null : _saveHours,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Constant.primary,
                       ),
-                      child: Text(
-                        "Continue",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Be Vietnam",
-                          color: Colors.white,
-                        ),
-                      ),
+                      child: _isSaving
+                          ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                                strokeWidth: 2,
+                              ),
+                            )
+                          : Text(
+                              "Continue",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "Be Vietnam",
+                                color: Colors.white,
+                              ),
+                            ),
                     ),
                   ),
                 ],

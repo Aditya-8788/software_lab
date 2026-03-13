@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:software_lab/Verification_screen.dart';
@@ -11,6 +13,93 @@ class FarmInfoScreen extends StatefulWidget {
 }
 
 class _FarmInfoScreenState extends State<FarmInfoScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _businessNameController = TextEditingController();
+  final _informalNameController = TextEditingController();
+  final _streetController = TextEditingController();
+  final _cityController = TextEditingController();
+  final _zipController = TextEditingController();
+
+  bool _isLoading = false;
+  String? _selectedState;
+
+  final List<String> _states = [
+    'Select state',
+    'Alabama',
+    'Alaska',
+    'Arizona',
+    'Arkansas',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    // ...add remaining states as needed
+  ];
+
+  @override
+  void dispose() {
+    _businessNameController.dispose();
+    _informalNameController.dispose();
+    _streetController.dispose();
+    _cityController.dispose();
+    _zipController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _saveFarmInfo() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('You must be logged in to continue.')),
+      );
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).set(
+        {
+          'farmInfo': {
+            'businessName': _businessNameController.text.trim(),
+            'informalName': _informalNameController.text.trim(),
+            'street': _streetController.text.trim(),
+            'city': _cityController.text.trim(),
+            'state': _selectedState,
+            'zipcode': _zipController.text.trim(),
+            'updatedAt': FieldValue.serverTimestamp(),
+          },
+        },
+        SetOptions(merge: true),
+      );
+
+      if (!mounted) return;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const VerificationScreen(),
+        ),
+      );
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to save farm info. Please try again.')),
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,10 +108,12 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                 Text(
                   "FarmerEats",
                   style: TextStyle(
@@ -56,7 +147,14 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                 SizedBox(
                   height: 50,
                   width: double.infinity,
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _businessNameController,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return 'Please enter your business name';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -81,7 +179,6 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                       fillColor: const Color.fromARGB(255, 221, 221, 221),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
                     ),
                   ),
@@ -90,7 +187,14 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                 SizedBox(
                   height: 50,
                   width: double.infinity,
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _informalNameController,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return 'Please enter an informal name';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -115,7 +219,6 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                       fillColor: const Color.fromARGB(255, 221, 221, 221),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
                     ),
                   ),
@@ -124,7 +227,14 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                 SizedBox(
                   height: 50,
                   width: double.infinity,
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _streetController,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return 'Please enter your street address';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -149,7 +259,6 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                       fillColor: const Color.fromARGB(255, 221, 221, 221),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
                     ),
                   ),
@@ -158,7 +267,14 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                 SizedBox(
                   height: 50,
                   width: double.infinity,
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _cityController,
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return 'Please enter your city';
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -183,7 +299,6 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                       fillColor: const Color.fromARGB(255, 221, 221, 221),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        // borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
                     ),
                   ),
@@ -191,10 +306,10 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                 SizedBox(height: 25),
                 Row(
                   children: [
-                    SizedBox(
-                      height: 48,
-                      width: 126,
-                      child: TextField(
+                    Expanded(
+                      flex: 4,
+                      child: DropdownButtonFormField<String>(
+                        initialValue: _selectedState ?? _states.first,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -219,22 +334,50 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                           fillColor: const Color.fromARGB(255, 221, 221, 221),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            // borderSide: BorderSide(color: Colors.grey.shade300),
                           ),
                         ),
+                        items: _states
+                            .map(
+                              (state) => DropdownMenuItem(
+                                value: state,
+                                child: Text(state),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedState = value;
+                          });
+                        },
+                        validator: (value) {
+                          if (value == null || value == _states.first) {
+                            return 'Please select a state';
+                          }
+                          return null;
+                        },
                       ),
                     ),
                     SizedBox(width: 15),
-                    SizedBox(
-                      height: 48,
-                      width: 188,
-                      child: TextField(
+                    Expanded(
+                      flex: 5,
+                      child: TextFormField(
+                        controller: _zipController,
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please enter a zipcode';
+                          }
+                          if (value.trim().length < 4) {
+                            return 'Please enter a valid zipcode';
+                          }
+                          return null;
+                        },
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(color: Colors.grey.shade300),
                           ),
-                          labelText: "Enter Zipcode",
+                          labelText: "Zipcode",
                           labelStyle: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -245,7 +388,6 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                           fillColor: const Color.fromARGB(255, 221, 221, 221),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            // borderSide: BorderSide(color: Colors.grey.shade300),
                           ),
                         ),
                       ),
@@ -270,26 +412,23 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
                       height: 52,
                       width: 226,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const VerificationScreen(),
-                            ),
-                          );
-                        },
+                        onPressed: _isLoading ? null : _saveFarmInfo,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Constant.primary,
                         ),
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Be Vietnam",
-                            color: Colors.white,
-                          ),
-                        ),
+                        child: _isLoading
+                            ? const CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Continue",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: "Be Vietnam",
+                                  color: Colors.white,
+                                ),
+                              ),
                       ),
                     ),
                   ],
@@ -300,6 +439,7 @@ class _FarmInfoScreenState extends State<FarmInfoScreen> {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
