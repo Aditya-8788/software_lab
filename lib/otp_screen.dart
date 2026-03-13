@@ -19,17 +19,31 @@ class OtpScreen extends StatefulWidget {
 
 class _OtpScreenState extends State<OtpScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _codeController = TextEditingController();
+  final List<TextEditingController> _otpControllers =
+      List.generate(6, (_) => TextEditingController());
+  final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   bool _isLoading = false;
+
+  String get _enteredCode => _otpControllers.map((c) => c.text).join();
 
   @override
   void dispose() {
-    _codeController.dispose();
+    for (final controller in _otpControllers) {
+      controller.dispose();
+    }
+    for (final node in _focusNodes) {
+      node.dispose();
+    }
     super.dispose();
   }
 
   Future<void> _verifyCode() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (_enteredCode.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter the 6-digit code')),
+      );
+      return;
+    }
 
     setState(() {
       _isLoading = true;
@@ -139,43 +153,68 @@ class _OtpScreenState extends State<OtpScreen> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      TextFormField(
-                        controller: _codeController,
-                        keyboardType: TextInputType.number,
-                        maxLength: 6,
-                        decoration: InputDecoration(
-                          counterText: '',
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 221, 221, 221),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
-                          labelText: 'Enter OTP',
-                          labelStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Be Vietnam',
-                            color: const Color.fromARGB(71, 38, 28, 18),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: List.generate(6, (index) {
+                            return SizedBox(
+                              width: 45,
+                              height: 55,
+                              child: TextFormField(
+                                controller: _otpControllers[index],
+                                focusNode: _focusNodes[index],
+                                keyboardType: TextInputType.number,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                maxLength: 1,
+                                decoration: InputDecoration(
+                                  counterText: '',
+                                  filled: true,
+                                  fillColor: const Color(0xFFEEEEEE),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey.shade300,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(
+                                      color: Constant.primary,
+                                      width: 2,
+                                    ),
+                                  ),
+                                ),
+                                onChanged: (value) {
+                                  if (value.isNotEmpty && index < 5) {
+                                    _focusNodes[index + 1].requestFocus();
+                                  }
+                                  if (value.isEmpty && index > 0) {
+                                    _focusNodes[index - 1].requestFocus();
+                                  }
+                                },
+                              ),
+                            );
+                          }),
                         ),
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Enter the code sent to your phone';
-                          }
-                          if (value.trim().length < 5) {
-                            return 'Please enter the full code';
-                          }
-                          return null;
-                        },
                       ),
-                      SizedBox(height: 45),
+                      const SizedBox(height: 45),
                       Center(
                         child: SizedBox(
                           height: 52,
                           width: 330,
                           child: ElevatedButton(
-                            onPressed: _isLoading ? null : _verifyCode,
+                            onPressed: (){
+                              Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ResetPasswordScreen(),
+                              ),);
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Constant.primary,
                             ),
